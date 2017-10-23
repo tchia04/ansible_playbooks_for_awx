@@ -1,0 +1,21 @@
+---
+# This playbook uses the win_ping module to test connectivity to Windows hosts
+- name: Win_Ping 
+  hosts: all 
+  gather_facts: false
+
+  tasks:
+  - name: win_ping_pong
+    win_ping:
+
+  - name: win_ping_dong
+    win_ping:
+      data: dong
+
+  - name: win_ping_crash
+    win_ping:
+      data: crash
+#    when: crash_ok is defined 
+    when: crash_ok |default(false)|bool
+
+
