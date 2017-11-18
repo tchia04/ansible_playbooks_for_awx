@@ -1,0 +1,6 @@
+---
+# tasks file for test
+
+- name: Test Task
+  debug:
+  msg: "Test task"
