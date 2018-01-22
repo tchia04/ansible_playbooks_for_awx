@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  vars:
+    foo: "{{ ansible_date_time.epoch }}-{{ 9|random }}-{{ 9|random }}"
+    bar: "{{ 60|random }}-{{ 60|random }}-{{ 60|random }}-{{ 60|random }}-{{ 60|random }}-{{ 60|random }}-{{ 60|random }}-{{ 60|random }}-"
+  tasks:
+    - debug: var=bar
+      with_sequence: count=60
+
+#    - set_fact:
+#        foo: "{{ ansible_date_time.epoch }}-{{ 9|random }}-{{ 9|random }}"
+#    - debug: var=foo
+#    - debug: var=foo
+#    - debug: var=foo
